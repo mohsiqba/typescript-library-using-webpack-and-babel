@@ -1,0 +1,43 @@
+{
+  "name": "typescript-library-using-webpack-and-babel",
+  "version": "1.0.11",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "npm run type-check -- --watch",
+    "build": "npm run type-check && npm run clean && cross-env NODE_ENV=development webpack --config webpack/webpack.config.dev.js",
+    "bundle:edge": "npm run type-check && cross-env NODE_ENV=production webpack --config webpack/webpack.config.prod.js && npm version patch",
+    "lint": "eslint . --fix",
+    "clean": "rimraf dist"
+  },
+  "keywords": [
+    "typescript",
+    "babel",
+    "webpack",
+    "eslint",
+    "cross-env",
+    "rimraf",
+    "terser-webpack-plugin"
+  ],
+  "author": "Mohsin Iqbal",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.17.2",
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/plugin-proposal-object-rest-spread": "^7.17.3",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/node": "^17.0.18",
+    "@typescript-eslint/eslint-plugin": "^5.12.0",
+    "@typescript-eslint/parser": "^5.12.0",
+    "babel-loader": "^8.2.3",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.9.0",
+    "rimraf": "^3.0.2",
+    "terser-webpack-plugin": "^5.3.1",
+    "typescript": "^4.5.5",
+    "webpack": "^5.69.1",
+    "webpack-cli": "^4.9.2"
+  }
+}
